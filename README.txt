@@ -20,5 +20,5 @@ Le CDataframe est une liste doublement chaînée de plusieurs columns, utiliser 
 
 Lien gitHub : https://github.com/Aminecsh/projetC
 
-
+Loris F / Amine C
 
