@@ -272,7 +272,137 @@ int number_of_occurences(const COLUMN *col, const void *x) {
 	return count;
 }
 
+void *get_value(const COLUMN *col, const unsigned int index) {
+	return col->data[index];
+}
 
+int number_of_higher_occurences(const COLUMN *col, const int x) {
+	int count = 0;
+	for (int i = 0; i < col->logical_size; i++) {
+		switch (col->column_type) {
+			case UINT:
+				if (*(unsigned int *) col->data[i] > *(unsigned int *) x)
+					count++;
+				break;
+			case INT:
+				if (*(int *) col->data[i] > *(int *) x)
+					count++;
+				break;
+			case CHAR:
+				if (*(char *) col->data[i] > *(char *) x)
+					count++;
+				break;
+			case FLOAT:
+				if (*(float *) col->data[i] > *(float *) x)
+					count++;
+				break;
+			case DOUBLE:
+				if (*(double *) col->data[i] > *(double *) x)
+					count++;
+				break;
+			case STRING:
+				if (strcmp((char *) col->data[i], (char *) x) > 0)
+					count++;
+				break;
+			//maybe todo : struct
+			default:
+				break;
+		}
+	}
+	return count;
+}
+
+
+int number_of_lower_occurences(const COLUMN *col, const int x) {
+	int count = 0;
+	for (int i = 0; i < col->logical_size; i++) {
+		switch (col->column_type) {
+			case UINT:
+				if (*(unsigned int *) col->data[i] < *(unsigned int *) x)
+					count++;
+				break;
+			case INT:
+				if (*(int *) col->data[i] < *(int *) x)
+					count++;
+				break;
+			case CHAR:
+				if (*(char *) col->data[i] < *(char *) x)
+					count++;
+				break;
+			case FLOAT:
+				if (*(float *) col->data[i] < *(float *) x)
+					count++;
+				break;
+			case DOUBLE:
+				if (*(double *) col->data[i] < *(double *) x)
+					count++;
+				break;
+			case STRING:
+				if (strcmp((char *) col->data[i], (char *) x) < 0)
+					count++;
+				break;
+			//maybe todo : struct
+			default:
+				break;
+		}
+	}
+	return count;
+}
+
+int number_of_equal_occurences(const COLUMN *col, const void *x) {
+	return number_of_occurences(col, x);
+}
+
+
+void print_col_by_index(COLUMN *col) {
+	for (int i = 0; i < col->logical_size; i++) {
+		if (col->data[i] == NULL)
+			printf("[%d] NULL\n", i);
+		else {
+			switch (col->column_type) {
+				case UINT:
+					printf("[%d] %u\n", i, *(unsigned int *) col->data[col->index[i]]);
+					break;
+				case INT:
+					printf("[%d] %d\n", i, *(int *) col->data[col->index[i]]);
+					break;
+				case CHAR:
+					printf("[%d] %c\n", i, *(char *) col->data[col->index[i]]);
+					break;
+				case FLOAT:
+					printf("[%d] %f\n", i, *(float *) col->data[col->index[i]]);
+					break;
+				case DOUBLE:
+					printf("[%d] %f\n", i, *(double *) col->data[col->index[i]]);
+					break;
+				case STRING:
+					printf("[%d] %s\n", i, (char *) col->data[col->index[i]]);
+					break;
+				//todo maybe : add structure
+				default:
+					break;
+			}
+		}
+	}
+}
+
+void erase_index(COLUMN *col) {
+	free(col->index);
+	col->index = NULL;
+	col->valid_index = 0;
+}
+
+int check_index(COLUMN *col) {
+	if (col->index == NULL)
+		return 0;
+	if (col->valid_index == 1)
+		return 1;
+	return -1;
+}
+
+void update_index(COLUMN *col) {
+	sort(col, col->sort_dir);
+}
 
 int search_value_in_column(COLUMN *col, const void *val) {
 	if (col->valid_index != 1)
