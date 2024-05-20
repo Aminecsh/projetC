@@ -16,5 +16,5 @@ Les noms des fonctions sont assez explicites (display_cdataframe, display_column
 Le CDataframe est une liste doublement chaînée de plusieurs columns, utiliser une liste chaînée permet d'ajouter des column sans devoir faire de réallocation, cela ajoute de la flexibilité ce qui est assez pratique.
 
 
-Lien GitHub : https://github.com/Aminecsh/projetC
+Lien gitHub : https://github.com/Aminecsh/projetC
 
