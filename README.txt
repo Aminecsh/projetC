@@ -6,7 +6,7 @@ Ensuite il faut écrire "./programme" afin de l'exécuter.
 
 	- La fonction main teste les fonctions à implémenter
 
-	- La fonction create_columns renvoie un pointeur vers une columns
+	- La fonction create_columns renvoie un pointeur vers une column
 
 	- La fonction create_empty_cdataframe renvoie un pointeur vers un cdataframe
 
