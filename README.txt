@@ -13,4 +13,6 @@ la fonction add_column permet d'ajouter une columns à un CDataframe
 Le projet contient plusieurs fonctions d'affichage pour pouvoir visualiser l'effet qu'ont eu les fonctions utilisées
 Les noms des fonctions sont assez explicites (display_cdataframe, display_column_names, display_line_count, etc..)
 
-Le CDataframe est une liste doublement chaînée de plusieurs columns, utiliser une liste chaînée permet d'ajouter des column sans devoir faire de réallocation, cela ajoute de la flexibilité ce qui est assez pratique
+Le CDataframe est une liste doublement chaînée de plusieurs columns, utiliser une liste chaînée permet d'ajouter des column sans devoir faire de réallocation, cela ajoute de la flexibilité ce qui est assez pratique.
+
+
