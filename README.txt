@@ -1,4 +1,4 @@
-Ce projet réimplémente les dataframes de la librairie Pandas en Python en C :
+Ce projet ré-implémente les dataframes de la librairie Pandas en Python en C :
 
 
 Pour compiler le projet, il faut faire la commande "clang main.c cdataframe.c column.c list.c sort.c -o programme" sur la ligne de commande
