@@ -2,7 +2,7 @@ Ce projet réimplémente les dataframes de la librairie Pandas en Python en C :
 
 
 Pour compiler le projet, il faut faire la commande "clang main.c cdataframe.c column.c list.c sort.c -o programme" sur la ligne de commande
-Ensuite il faut écrire "./programme" pour l'exécuter
+Ensuite il faut écrire "./programme" afin de l'exécuter.
 
 	- La fonction main teste les fonctions à implémenter
 
@@ -19,6 +19,8 @@ Le CDataframe est une liste doublement chaînée de plusieurs columns, utiliser 
 
 
 Lien gitHub : https://github.com/Aminecsh/projetC
+
+
 
 
 
